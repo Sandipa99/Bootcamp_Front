@@ -82,7 +82,7 @@ const AddAdvertisement = () => {
   };
   console.log(adv);
   return (
-    <div style={{ align: "center" }}>
+    <div>
       {/* <Navigation /> */}
       <form onSubmit={handleSubmit}>
         <Card className="card-profile shadow attendance">

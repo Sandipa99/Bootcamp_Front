@@ -56,7 +56,7 @@ const FarmerLogin = () => {
 
   // connect store to get login and errMsg info
 
-  const lgn = useSelector((state) => state.farmerlogin);
+  const lgn = useSelector((state) => state);
 
   //setErrRes(useSelector((state) => state.login.errMsg));
 
@@ -79,10 +79,11 @@ const FarmerLogin = () => {
 
     // Based on loggedIn state redirect user to home or any other page
     setTimeout(() => {
-      console.log(lgn);
-      if (lgn.isLoggedIn) {
-        alert("Farmer logged in successfully!");
-        navigate("/farmerDashboard");
+      if (lgn.farmerlogin.isLoggedIn) {
+        if (lgn.farmerlogin.login === "ROLE_FARMER") {
+          alert("Farmer logged in successfully!");
+          navigate("/farmer/dashboard");
+        }
       }
     }, 500);
   };
@@ -123,7 +124,7 @@ const FarmerLogin = () => {
                       id="username"
                       aria-describedby="usernameHelp"
                       name="username"
-                      //value={login.username}
+                      value={login.username}
                       onChange={handleChange}
                       required
                     />
@@ -137,7 +138,7 @@ const FarmerLogin = () => {
                       className="form-control"
                       id="password"
                       name="password"
-                      //value={login.password}
+                      value={login.password}
                       onChange={handleChange}
                       required
                     />
