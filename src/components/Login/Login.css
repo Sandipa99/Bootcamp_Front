@@ -1,0 +1,85 @@
+.bg-secondary-login {
+  background-color: #f7fafc !important;
+}
+
+a.bg-secondary-login:hover,
+a.bg-secondary-login:focus,
+button.bg-secondary-login:hover,
+button.bg-secondary-login:focus {
+  background-color: #d2e3ee !important;
+}
+.border-0-login {
+  border: 0 !important;
+}
+.bg-transparent-login {
+  background-color: transparent !important;
+}
+.pb-5-login,
+.py-5 {
+  padding-bottom: 0.8rem !important;
+}
+.text-muted-login {
+  color: #071f3b !important;
+}
+.text-center-login {
+  text-align: center !important;
+}
+.mt-2-login,
+.my-2 {
+  margin-top: 0.5rem !important;
+}
+.mb-3-login,
+.my-3 {
+  margin-bottom: 0rem !important;
+}
+.pr-lg-5,
+.px-lg-5 {
+  padding-right: 3rem !important;
+}
+.pb-lg-5,
+.py-lg-5 {
+  padding-bottom: 3rem !important;
+}
+.mb-4-login,
+.my-4 {
+  margin-bottom: 0rem !important;
+}
+
+.input-group-alternative-login {
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
+  border: 0;
+  transition: box-shadow 0.15s ease;
+}
+.input-group-alternative-login .form-control,
+.input-group-alternative-login .input-group-text {
+  border: 0;
+  box-shadow: none;
+}
+
+.logincontainer {
+  position: relative;
+  width: 100%;
+  height: 68vh;
+  margin-left: 460px;
+  margin-top: 145px;
+  padding-left: 60px !important;
+  padding-right: 60px !important;
+}
+
+.error {
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.loginpage {
+  background-color: #032208;
+
+  padding-top: 45px;
+  padding-bottom: 96px;
+}
+.text-right {
+  margin-left: 240px;
+}
+.text-light {
+  text-decoration: none;
+}

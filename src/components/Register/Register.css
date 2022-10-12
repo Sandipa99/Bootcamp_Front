@@ -1,0 +1,83 @@
+.bg-secondary-register {
+  background-color: #f7fafc !important;
+}
+
+a.bg-secondary-register:hover,
+a.bg-secondary-register:focus,
+button.bg-secondary-register:hover,
+button.bg-secondary-register:focus {
+  background-color: #d2e3ee !important;
+}
+.border-0-register {
+  border: 0 !important;
+}
+.bg-transparent-register {
+  background-color: transparent !important;
+
+  padding-top: 18px !important;
+
+  padding-bottom: 0 !important;
+}
+
+.text-muted-register {
+  color: #8898aa !important;
+}
+.text-center-register {
+  text-align: center !important;
+}
+.mt-2-register,
+.my-2 {
+  margin-top: 0.5rem !important;
+}
+.mb-3-register,
+.my-3 {
+  margin-bottom: 1rem !important;
+}
+.pr-lg-5,
+.px-lg-5 {
+  padding-right: 3rem !important;
+}
+.pb-lg-5,
+.py-lg-5 {
+  padding-bottom: 3rem !important;
+}
+.mb-4-register,
+.my-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.input-group-alternative-register {
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.15), 0 1px 0 rgba(0, 0, 0, 0.02);
+  border: 0;
+  transition: box-shadow 0.15s ease;
+}
+.input-group-alternative-register .form-control,
+.input-group-alternative-register .input-group-text {
+  border: 0;
+  box-shadow: none;
+}
+
+.registercontainer {
+  position: relative;
+  width: 100%;
+  margin-left: 400px;
+  margin-top: 100px;
+
+  padding-left: 130px !important;
+  padding-right: 130px !important;
+}
+
+.error {
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+
+.registerpage {
+  background-color: #032208;
+
+  padding-top: 71px;
+  padding-bottom: 196px;
+}
+.text-right {
+  margin-left: 260px;
+}

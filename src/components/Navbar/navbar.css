@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins&display=swap");
+
+.signup-links {
+  display: flex;
+  width: 350px;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 12%;
+  width: 75%;
+  height: 100px;
+  color: #242424;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo > img {
+  width: 35px;
+  height: 35px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: "Open Sans";
+  word-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #2b2a2a;
+}
+
+.cartIcon {
+  font-size: 36px;
+  color: #232323;
+}
+
+.badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transform: translate(-20%, -50%);
+  margin-right: 10px;
+}
+
+.counter {
+  display: flex;
+  width: 180px;
+  justify-content: space-between;
+  list-style: none;
+  text-decoration: none;
+}
+
+.span {
+  font-size: 26px;
+  /* font-family: 'Roboto Condensed'; */
+  font-family: "Poppins";
+  font-weight: 500;
+  word-spacing: 5px;
+  color: #ffffff;
+  margin-left: 10px;
+}
