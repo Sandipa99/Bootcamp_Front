@@ -9,8 +9,8 @@ const initialState = {
       case "SUPPLIER_REGISTER":
         return { ...state, supplier: action.payload };
       case "SUPPLIER_LOGIN":
-        console.log({ ...state, login: action.payload });
-        return { ...state, login: action.payload };
+        const newsupplierlogin=({...state,login:action.payload,isLoggedIn:"true"});
+        return newsupplierlogin;
       case "SUPPLIER_ERR_RES":
         return { ...state, errMsg: action.payload };
       case "SUPPLIER_LOGOUT":

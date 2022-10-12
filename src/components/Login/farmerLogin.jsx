@@ -56,7 +56,7 @@ const FarmerLogin = () => {
 
   // connect store to get login and errMsg info
 
-  const lgn = useSelector((state) => state);
+  const lgn = useSelector((state) => state.farmerlogin);
 
   //setErrRes(useSelector((state) => state.login.errMsg));
 
@@ -79,11 +79,10 @@ const FarmerLogin = () => {
 
     // Based on loggedIn state redirect user to home or any other page
     setTimeout(() => {
-      if (lgn.farmerlogin.isLoggedIn) {
-        if (lgn.farmerlogin.login === "ROLE_FARMER") {
-          alert("Farmer logged in successfully!");
-          navigate("/farmerDashboard");
-        }
+      console.log(lgn);
+      if (lgn.isLoggedIn) {
+        alert("Farmer logged in successfully!");
+        navigate("/farmerDashboard");
       }
     }, 500);
   };
