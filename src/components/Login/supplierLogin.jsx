@@ -55,7 +55,7 @@ const SupplierLogin = () => {
 
   // connect store to get login and errMsg info
 
-  const lgn = useSelector((state) => state.login);
+  const lgn = useSelector((state) => state.supplierlogin);
 
   //setErrRes(useSelector((state) => state.login.errMsg));
 
@@ -77,15 +77,15 @@ const SupplierLogin = () => {
     dispatch(loginAction(login));
 
     // Based on loggedIn state redirect user to home or any other page
-    // setTimeout(() => {
-    //  alery
-    // }, 500);
+    setTimeout(() => {
+      console.log(lgn);
+      if (lgn.isLoggedIn) {
+        alert("Supplier logged in successfully!");
+        navigate("/supplierDashboard");
+      }
+    }, 500);
   };
 
-  const navigateHome = () => {
-    // 👇️ navigate to /
-    navigate("/");
-  };
 
   return (
     <div className="loginpage">
@@ -146,7 +146,7 @@ const SupplierLogin = () => {
                 type="submit"
                 value="Submit"
                 color="primary"
-                onClick={navigateHome}
+               // onClick={navigateHome}
               >
                 Login
               </Button>

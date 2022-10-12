@@ -13,27 +13,34 @@ export const registerAction = (body) => async (dispatch) => {
 };
 
 export const loginAction = (login) => (dispatch) => {
-  axios
-    .post("http://localhost:8080/farmer/signin", login)
-    .then((res) => {
-      console.log(res);
-      if (res.data[0].authority === "ROLE_FARMER") {
-        dispatch({
-          type: "FARMER_LOGIN",
-          payload: res.data[0].authority,
-        });
-      } else {
+//  const cookies = new Cookies();
+    axios
+      .post("http://localhost:8080/farmer/signin", login)
+      .then((res) => {
+ //        cookies.set("username", res.data.principal.username);
+  //       console.log(cookies.get("username"));
+        if(res.data.authorities[0].authority==='ROLE_FARMER')
+        {
+          dispatch({
+            type: "FARMER_LOGIN",
+            payload: res.data.authorities[0].authority,
+          });
+        }    
+        else{
+          alert('Invalid Credentials');
+        }
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
         alert("Invalid Credentials");
-      }
-    })
-    .catch((error) => {
-      console.log(error.response.data.message);
-      dispatch({
-        type: "FARMER_ERR_RES",
-        payload: error.response.data.message,
+        dispatch({
+          type: "FARMER_ERR_RES",
+          payload: error.response.data.message,
+        });
       });
-    });
-};
+  };
+
+
 
 // logout action
 export const logoutAction = () => async (dispatch) => {
