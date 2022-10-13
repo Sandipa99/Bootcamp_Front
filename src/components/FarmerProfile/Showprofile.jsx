@@ -38,9 +38,22 @@ const Showprofile = (props) => (
                       >
                         Username
                       </label>
+                      : {props.username}
+                    </FormGroup>
+                  </Col>
+                  <Col lg="6">
+                    <FormGroup>
+                      <label
+                        className="form-control-label"
+                        htmlFor="input-section"
+                      >
+                        Name
+                      </label>
                       : {props.name}
                     </FormGroup>
                   </Col>
+                  </Row>
+                  <Row>
                   <Col lg="6">
                     <FormGroup>
                       <label
@@ -52,35 +65,25 @@ const Showprofile = (props) => (
                       : {props.phone}
                     </FormGroup>
                   </Col>
-                </Row>
-              </div>
-              <hr className="my-4" />
-              {/* Address */}
-
-              <div className="pl-lg-4">
-                <Row>
-                  <Col lg="4">
+                  <Col lg="6">
                     <FormGroup>
                       <label
                         className="form-control-label"
                         htmlFor="input-stream"
                       >
-                        address
+                        Address
                       </label>
                       : {props.address}
                     </FormGroup>
                   </Col>
-                  <Col lg="4">
-                    <FormGroup>
-                      <label
-                        className="form-control-label"
-                        htmlFor="input-section"
-                      >
-                        name
-                      </label>
-                      : {props.name}
-                    </FormGroup>
-                  </Col>
+                  </Row>
+              </div>
+              {/* Address */}
+
+              <div className="pl-lg-4">
+               
+                  
+                  
                   {/* <Col lg="4">
                     <FormGroup>
                       <label
@@ -92,7 +95,7 @@ const Showprofile = (props) => (
                       : {props.year}
                     </FormGroup>
                   </Col> */}
-                </Row>
+                
                 {/* <Row>
                   <Col lg="4">
                     <FormGroup>
@@ -131,7 +134,7 @@ const Showprofile = (props) => (
 
                 <hr className="my-4" />
               </div>
-              <Button href="/updateprofile">Edit</Button>
+              <Button href="/editFarmer">Edit</Button>
             </Form>
           </CardBody>
         </Card>

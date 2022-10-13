@@ -97,7 +97,7 @@ const AddComplaint = () => {
       .then((res) => {
         console.log(res);
         alert("Added new complaint " + res.data.complaint + " successfully!");
-        navigate("/compalint");
+        navigate("/farmer/dashboard");
       })
       .catch((error) => console.log(error));
   };

@@ -9,6 +9,8 @@ import SupplierLogin from "./components/Login/supplierLogin";
 import AddComplaint from "./components/Complaint/addComplaint";
 import AddAdvertisement from "./components/Advertisement/addAdvertisement";
 import FarmerDashboard from "./components/Dashboard/farmerDashboard";
+import Userprofile from "./components/FarmerProfile/Userprofile";
+import UpdateProfile from "./components/FarmerUpdateProfile/UpdateProfile";
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
           <Route path="/registersupplier" element={<SupplierRegister />} />
           <Route path="/farmer/addcomplaint" element={<AddComplaint />} />
           <Route path="/farmer/dashboard" element={<FarmerDashboard />} />
+          <Route path="/viewFarmer" element={<Userprofile/>} />
+          <Route path="/editFarmer" element={<UpdateProfile/>} />
+          
           <Route
             path="/supplier/addAdvertisement"
             element={<AddAdvertisement />}

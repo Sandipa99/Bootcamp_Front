@@ -3,6 +3,8 @@ import { Jumbotron, Button } from "react-bootstrap";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import "./Dashboard.css";
+import Navigation from "../Navigation/Navigation";
+import ViewAdvertisement from "../Advertisement/viewAdvertisement";
 
 class FarmerDashboard extends React.Component {
   state = {
@@ -24,28 +26,15 @@ class FarmerDashboard extends React.Component {
   }
   render() {
     return (
-      //   <div>
-      //     <h1>{this.state.name}</h1>
-      //   </div>
-      //   <div className="student">
-      //     {/* <Navigation /> */}
-      //     <Jumbotron className="welcome">
-      //       <h1 className="display-3 welcome-text">
-      //         {/* Hello, {this.state.user.name}! */}
-      //       </h1>
-      //     </Jumbotron>
-      //     {/* <ShowExam /> */}
-      //   </div>
-      <Jumbotron>
-        <h1>Hello, world!</h1>
-        <p>
-          This is a simple hero unit, a simple jumbotron-style component for
-          calling extra attention to featured content or information.abcd
-        </p>
-        <p>
-          <Button bsStyle="primary">Learn more</Button>
-        </p>
-      </Jumbotron>
+      <div>
+        <Navigation/>
+      
+      <div className="jumbotron welcome">     
+        <h1 className="display-4 welcome-text">Hello, {this.state.name}!</h1>
+        <hr class="my-4"/>
+      </div>
+      <ViewAdvertisement/>
+      </div>
     );
   }
 }
