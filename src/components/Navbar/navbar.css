@@ -1,6 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Poppins&display=swap");
 
+.btn-get-started {
+  font-family: "Jost", sans-serif;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 0 11px 0px;
+  border-radius: 50px !important;
+  transition: 0.5s;
+  color: #fff;
+  margin-top: 20px;
+  background: #032208 !important;
+  border-color: #fff !important;
+}
+
+.get-started-btn {
+  font-family: "Jost", sans-serif;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 0 11px 0px;
+  border-radius: 50px !important;
+  transition: 0.5s;
+  color: #fff;
+  margin-top: 20px;
+  background: #032208 !important;
+  margin-left: 20px;
+  border-color: #fff !important;
+}
+
 .signup-links {
   display: flex;
   width: 350px;
@@ -64,7 +97,6 @@
 
 .span {
   font-size: 26px;
-  /* font-family: 'Roboto Condensed'; */
   font-family: "Poppins";
   font-weight: 500;
   word-spacing: 5px;

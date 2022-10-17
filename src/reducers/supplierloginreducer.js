@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router";
+
 const initialState = {
     supplier: {},
     login: {},
@@ -5,9 +7,12 @@ const initialState = {
   };
   
   export const supplierLoginReducer = (state = initialState, action) => {
+   
     switch (action.type) {
       case "SUPPLIER_REGISTER":
-        return { ...state, supplier: action.payload };
+        alert("Supplier added successfully");
+        window.location.replace("/supplier");
+        return { ...state, supplier: action.payload,isRegistered:"true" };
       case "SUPPLIER_LOGIN":
         const newsupplierlogin=({...state,login:action.payload,isLoggedIn:"true"});
         return newsupplierlogin;

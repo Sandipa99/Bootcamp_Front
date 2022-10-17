@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./UpdateProfile.css";
 import Cookies from "universal-cookie";
 
 import {
@@ -15,9 +14,9 @@ import {
   Row,
   Col,
 } from "reactstrap";
-import Navigation from "../Navigation/Navigation";
+import Navigation from "../Navigation/SupplierNav";
 
-class Profile extends Component {
+class UpdateProfile extends Component {
   state = {
     name: "",
     phone: "",
@@ -30,7 +29,7 @@ class Profile extends Component {
     const cookies = new Cookies();
 
     axios
-      .get(`http://localhost:8080/farmer/viewFarmer/${cookies.get("username")}`)
+      .get(`http://localhost:8080/supplier/viewSupplier/${cookies.get("username")}`)
       .then((response) => {
         console.log(response.data.user);
         this.setState({ user: response.data });
@@ -57,14 +56,12 @@ class Profile extends Component {
     const cookies = new Cookies();
 
     axios.patch(
-        `http://localhost:8080/user/updateFarmer/${cookies.get("username")}`,
+        `http://localhost:8080/user/updateSupplier/${cookies.get("username")}`,
         details
       )
       .catch((err)=>console.log(err.response.data));
         
     console.log(details);
-
-    //console.log(details);
     this.setState({ message: "Updated Successfully" });
     alert("Updated Successfully");
   };
@@ -73,7 +70,6 @@ class Profile extends Component {
     return (
       <>
         <Navigation />
-        {/* Page content */}
         <Container className="mt--7 header-update">
           <Col className="order-update">
             <Card className="bg-update shadow">
@@ -169,4 +165,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default UpdateProfile;

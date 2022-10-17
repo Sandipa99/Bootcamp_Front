@@ -4,8 +4,8 @@ import axios from "axios";
 import "./Userprofile.css";
 import Cookies from "universal-cookie";
 
-import Navigation from "../Navigation/Navigation";
-import Showprofile from "./Showprofile";
+import Navigation from "../Navigation/SupplierNav";
+import ShowProfile from "./ShowProfile";
 
 class Userprofile extends Component {
   state = {
@@ -17,7 +17,7 @@ class Userprofile extends Component {
     const cookies = new Cookies();
 
     axios
-      .get(`http://localhost:8080/farmer/viewFarmer/${cookies.get("username")}`)
+      .get(`http://localhost:8080/supplier/viewSupplier/${cookies.get("username")}`)
       .then((response) => {
         console.log(response.data.user);
         this.setState({ user: response.data });
@@ -29,7 +29,7 @@ class Userprofile extends Component {
     return (
       <div>
         <Navigation />
-        <Showprofile
+        <ShowProfile
           name={this.state.user.name}
           phone={this.state.user.phoneNo}
           address={this.state.user.address}

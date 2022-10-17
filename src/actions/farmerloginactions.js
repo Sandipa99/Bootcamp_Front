@@ -4,7 +4,15 @@ import Cookies from "universal-cookie";
 // Register
 export const registerAction = (body) => async (dispatch) => {
   console.log("farmerdetails" + body);
-  const result = await axios.post("http://localhost:8080/farmer/signup", body);
+  const result = await axios.post("http://localhost:8080/farmer/signup", body)
+  .catch((error) => {
+    console.log(error.response.data);
+    console.log(error.response.status);
+    if(error.response.status==400)
+    {
+      alert(error.response.data);
+    }
+  });
   console.log(result);
   console.log(result.data);
   dispatch({
@@ -19,7 +27,7 @@ export const loginAction = (login) => (dispatch) => {
     .post("http://localhost:8080/farmer/signin", login)
     .then((res) => {
       cookies.set("username", res.data.principal.username);
-      console.log(cookies.get("username"));
+      cookies.set("role", res.data.authorities[0].authority);
       if (res.data.authorities[0].authority === "ROLE_FARMER") {
         dispatch({
           type: "FARMER_LOGIN",
@@ -39,27 +47,3 @@ export const loginAction = (login) => (dispatch) => {
     });
 };
 
-// logout action
-export const logoutAction = () => async (dispatch) => {
-  const result = await axios.post(`http://localhost:8080/logout`);
-  console.log(result);
-  console.log(result.data);
-  dispatch({
-    type: "FARMER_LOGOUT",
-    payload: result.data,
-  });
-};
-
-//farmerDetails action
-
-export const farmerDetailsAction = () => async (dispatch) => {
-  const result = await axios.post(
-    `http://localhost:8080/farmer/getFarmerById/{id}`
-  );
-  console.log(result);
-  console.log(result.data);
-  dispatch({
-    type: "FARMER_DETAILS",
-    payload: result.data,
-  });
-};

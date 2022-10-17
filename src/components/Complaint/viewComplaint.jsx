@@ -3,25 +3,24 @@ import { Jumbotron, Button, Row, Col, Card, CardTitle } from "reactstrap";
 import axios from "axios";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { Link } from "react-router-dom";
-import "./ViewAdvertisement.css";
 
-function ViewAdvertisement() {
+function ViewComplaint() {
   const [allData, setAllData] = useState([]);
-  const [message, setMessage] = useState("Advertisement :");
+  const [message, setMessage] = useState("Complaint :");
 
   useEffect(() => {
     (async () => {
-      const ads = await axios("http://localhost:8080/farmer/getAllAdvertisement");
-      console.log(ads.data.length);
-      setAllData(ads.data.filter((abc)=>abc.status==false));
+      const complaint = await axios("http://localhost:8080/admin/getAllComplaint");
+      console.log(complaint.data.length);
+      setAllData(complaint.data.filter((comp)=>comp.status==false));
     })();
   }, []);
 
   const renderHeader = () => {
-    if (message.localeCompare("Advertisement :")) {
+    if (message.localeCompare("Complaint :")) {
       return setMessage("");
 } else {
-      let headerElement = ["cropType", "quantity", "weight", "price", "supplier"];
+      let headerElement = ["complaint","Posted by"];
 
       return headerElement.map((key, index) => {
         return <th key={index}>{key.toUpperCase()}</th>;
@@ -34,18 +33,15 @@ function ViewAdvertisement() {
     return (
         <>
 {
-      allData.map(({cropType, quantity, weight, price,name,advid}) => {
-        console.log("noraml"+"ab"+advid);
+      allData.map(({complaint,username,id}) => {
+        console.log("noraml"+"ab"+id);
         return (
           <tr >
-            <td className="live-code">{cropType}</td>
-            <td>{quantity}</td>
-            <td>{weight}</td>
-            <td>{price}</td>
-            <td>{name}</td>
+            <td>{complaint}</td>
+            <td>{username}</td>
             <td className="operation">
-              <button className="button" onClick={() => sellCrop(advid)}>             
-                Sell
+              <button className="button" onClick={() => resolveComplaint(id)}>             
+                Resolve
               </button>
             </td>
           </tr>
@@ -57,8 +53,8 @@ function ViewAdvertisement() {
     );  
   };
 
-    const sellCrop = (ID) => {
-    axios.post(`http://localhost:8080/farmer/statusAdvertisement/${ID}`).then((res) => {
+    const resolveComplaint = (ID) => {
+    axios.post(`http://localhost:8080/admin/resolveComplaint/${ID}`).then((res) => {
       window.location.reload(false);
     });
   };
@@ -85,15 +81,15 @@ function ViewAdvertisement() {
         </Row>
            }
             { allData.length==0 && 
-            <h3 className="display-5" style={{paddingRight:"30px"}}>No Advertisement Available!</h3>}
+            <h3 className="display-5" style={{paddingRight:"30px"}}>No Complaint Available!</h3>}
            </Col>
            <Col>
             
         <Col lg-6>
           <Card body className="create-exam" style={{width:"300px"}}>
             <CardTitle tag="h4" className="exam-card-title" >
-              Add Complaint
-              <Link to="/farmer/addcomplaint">
+              Resolved Complaint
+              <Link to="/resolvedComplaint">
                 {" "}
                 <ArrowForwardIosIcon className="arrow-icn" />
               </Link>
@@ -106,4 +102,4 @@ function ViewAdvertisement() {
   );
 }
 
-export default ViewAdvertisement;
+export default ViewComplaint;

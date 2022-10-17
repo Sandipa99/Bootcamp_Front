@@ -1,0 +1,24 @@
+#resolved-complaint {
+    border-collapse: collapse;
+    width: 600px !important;
+    margin-left: 470px;
+    margin-top:30px;
+  }
+  #resolved-complaint td,
+  #resolved-complaint th {
+    border: 1px solid #ddd;
+    padding: 25px 45px;
+    font-family: "Jost", sans-serif;
+  }
+  
+  #resolved-complaint tr:hover {
+    background-color: #ddd;
+  }
+  
+  #resolved-complaint th {
+    padding: 10px;
+    text-align: center;
+    background-color: #29d65a;
+    color: white;
+    font-family: "Jost", sans-serif;
+  }

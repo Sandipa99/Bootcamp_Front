@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
-import "./Navigation.css";
+import "./SupplierNav.css";
 import {
     Collapse,
     Navbar,
@@ -30,7 +30,7 @@ const deleteAccount=()=>{axios.delete(`http://localhost:8080/user/deleteUser/${c
 })};
 
 const logout=()=>{
-  axios.get("http://localhost:8080/farmer/logout")
+  axios.get("http://localhost:8080/supplier/logout")
     .then(()=>{
       cookies.remove("username");
       cookies.remove("role");
@@ -42,11 +42,11 @@ const logout=()=>{
   return (
     <div className="navbar_manual">
     <Navbar color="light" light expand="md">
-      <NavbarBrand href="/farmer/dashboard">FARMER</NavbarBrand>
+      <NavbarBrand href="/supplier/dashboard">SUPPLIER</NavbarBrand>
         <Nav className="ml-auto" navbar>
         <NavItem>
             <NavDropdown title="Settings" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/viewFarmer">
+              <NavDropdown.Item href="/viewSupplier">
                 My profile
               </NavDropdown.Item>
 

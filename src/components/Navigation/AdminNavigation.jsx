@@ -19,18 +19,13 @@ import {
 
 
 
-function Navigation()
+function AdminNavigation()
 {
   const cookies = new Cookies();
 const navigate = useNavigate();
 
-const deleteAccount=()=>{axios.delete(`http://localhost:8080/user/deleteUser/${cookies.get("username")}`).then((res) => {
-  alert("Account Deleted");
-  navigate("/");
-})};
-
 const logout=()=>{
-  axios.get("http://localhost:8080/farmer/logout")
+  axios.get("http://localhost:8080/admin/logout")
     .then(()=>{
       cookies.remove("username");
       cookies.remove("role");
@@ -42,19 +37,9 @@ const logout=()=>{
   return (
     <div className="navbar_manual">
     <Navbar color="light" light expand="md">
-      <NavbarBrand href="/farmer/dashboard">FARMER</NavbarBrand>
+      <NavbarBrand href="/admin/dashboard">ADMIN</NavbarBrand>
         <Nav className="ml-auto" navbar>
         <NavItem>
-            <NavDropdown title="Settings" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/viewFarmer">
-                My profile
-              </NavDropdown.Item>
-
-              <NavDropdown.Divider />
-              <NavDropdown.Item onClick={deleteAccount}>
-                Delete account
-              </NavDropdown.Item>
-            </NavDropdown>
 
           </NavItem>
           <NavItem>
@@ -66,4 +51,4 @@ const logout=()=>{
   );
 }
 
-export default Navigation;
+export default AdminNavigation;

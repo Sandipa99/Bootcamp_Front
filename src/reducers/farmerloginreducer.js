@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 const initialState = {
     farmer: {},
     login: {},
@@ -7,7 +8,9 @@ const initialState = {
   export const farmerLoginReducer = (state = initialState, action) => {
     switch (action.type) {
       case "FARMER_REGISTER":
-        return { ...state, farmer: action.payload };
+        alert("Farmer added successfully");
+        window.location.replace("/farmer");
+        return { ...state, farmer: action.payload,isRegistered:"true" };
       case "FARMER_LOGIN":
         const newlogin=({...state,login:action.payload,isLoggedIn:"true"});
         return newlogin;

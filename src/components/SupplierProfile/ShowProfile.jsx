@@ -12,7 +12,7 @@ import {
 } from "reactstrap";
 import "./Userprofile.css";
 
-const Showprofile = (props) => (
+const ShowProfile = (props) => (
   <div>
     <Container className="mt--7 header-update">
       <Col className="order-update">
@@ -78,11 +78,11 @@ const Showprofile = (props) => (
                   </Col>
                   </Row>
               </div>
-
               <div className="pl-lg-4">
-                 <hr className="my-4" />
+
+                <hr className="my-4" />
               </div>
-              <Button href="/editFarmer">Edit</Button>
+              <Button href="/editSupplier">Edit</Button>
             </Form>
           </CardBody>
         </Card>
@@ -91,4 +91,4 @@ const Showprofile = (props) => (
   </div>
 );
 
-export default Showprofile;
+export default ShowProfile;

@@ -2,6 +2,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
+import Navigation from "../Navigation/SupplierNav";
 
 import "./Advertisement.css";
 import {
@@ -19,8 +21,6 @@ import {
   Row,
   Col,
 } from "reactstrap";
-// step1:
-//import Joi from "joi-browser";
 
 const AddAdvertisement = () => {
   // value, name, handleOnChange(), handleSubmit()
@@ -29,23 +29,23 @@ const AddAdvertisement = () => {
 
   // Define state using useState
   let navigate = useNavigate();
+  const cookies = new Cookies();
 
   const [adv, setAdv] = useState({
     cropType: "",
     quantity: "",
     weight: "",
     price: "",
+    name:""
   });
 
   const handleChange = (event) => {
     console.log(event.target.name); // returns field name
     console.log(event.target.value); // retruns filed value
 
-    // copy emp details to newEmp obj
+    // copy adv details to newEmp obj
     const newAdv = { ...adv };
 
-    //newEmp.empId =10;
-    //newEmp["empId"] = 10;
     //update newEmp object
     newAdv[event.target.name] = event.target.value;
 
@@ -54,6 +54,8 @@ const AddAdvertisement = () => {
   };
 
   const handleSubmit = (event) => {
+    console.log(cookies.get("name"));
+    
     event.preventDefault();
     //axios.post(url, emp);
     let crop = document.getElementById("croptype").value;
@@ -66,24 +68,22 @@ const AddAdvertisement = () => {
       quantity: quantity,
       weight: weight,
       price: price,
+      name:cookies.get("name")
     };
-    // validate form data using validate method
-    //const result = validate();
-    //console.log(result);
-
+    console.log(newAdv);
     axios
       .post("http://localhost:8080/supplier/addAdvertisement", newAdv)
       .then((res) => {
         console.log(res);
         alert("New Advertisement added successfully!");
-        navigate("/compalint");
+        navigate("/supplier/dashboard");
       })
       .catch((error) => console.log(error));
   };
   console.log(adv);
   return (
     <div>
-      {/* <Navigation /> */}
+       <Navigation /> 
       <form onSubmit={handleSubmit}>
         <Card className="card-profile shadow attendance">
           <Row className="justify-content-center">
@@ -96,16 +96,12 @@ const AddAdvertisement = () => {
           </CardHeader>
           <CardBody className="pt-0 pt-md-4">
             <div className="text-center">
-              {/* {this.state.message && (
-                  <p className="message"> {this.state.message} </p>
-                )} */}
               <FormGroup>
                 <Input
                   className="form-control-alternative"
                   id="croptype"
                   type="text"
                   placeholder="CropType"
-                  // value={comp.complaint}
                   onChange={handleChange}
                   required
                 />
@@ -116,7 +112,6 @@ const AddAdvertisement = () => {
                   id="quantity"
                   type="text"
                   placeholder="Quantity"
-                  // value={comp.complaint}
                   onChange={handleChange}
                   required
                 />
@@ -127,7 +122,6 @@ const AddAdvertisement = () => {
                   id="weight"
                   type="text"
                   placeholder="Weight"
-                  // value={comp.complaint}
                   onChange={handleChange}
                   required
                 />
@@ -138,7 +132,6 @@ const AddAdvertisement = () => {
                   id="price"
                   type="text"
                   placeholder="Price"
-                  // value={comp.complaint}
                   onChange={handleChange}
                   required
                 />
@@ -147,56 +140,11 @@ const AddAdvertisement = () => {
                 Add Advertisement
               </Button>
             </div>
-
-            {/* <Button
-              className="float-center"
-              color="default"
-              size="sm"
-              onClick={this.postDataHandler}
-            >
-              Submit
-            </Button> */}
-            {/* 
-            <div className="attendance-link">
-              <Button
-                className="float-center"
-                color="default"
-                size="sm"
-                href="/checkattendance"
-              >
-                Check Your Attendance
-              </Button>
-            </div> */}
           </CardBody>
         </Card>
       </form>
     </div>
-    // <div className="ComplaintPage">
-    //   <div className="w-50 mx-auto mt-3">
-    //     <p className="display-6">Add New Complaint</p>
-    //     <form className="border p-3" onSubmit={handleSubmit}>
-    //       <div className="mb-3">
-    //         <label htmlFor="complaint" className="form-label float-start">
-    //           Complaint
-    //         </label>
-    //         <input
-    //           type="complaint"
-    //           className="form-control"
-    //           id="complaint"
-    //           aria-describedby="complaintHelp"
-    //           value={comp.complaint}
-    //           name="complaint"
-    //           onChange={handleChange}
-    //         />
-    //       </div>
-    //       <div className="d-grid gap-2">
-    //         <button type="submit" className="btn btn-primary">
-    //           Add
-    //         </button>
-    //       </div>
-    //     </form>
-    //   </div>
-    // </div>
+    
   );
 };
 
