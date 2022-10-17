@@ -42,7 +42,6 @@ const SupplierLogin = () => {
     const result = Joi.validate(login, schema, {
       abortEarly: false,
     });
-    // console.log(result.data);
     // setting error messages to error properties
     // ex: errors[username] = "username is required";
     // ex: errors[password] = "password is required";
@@ -56,8 +55,6 @@ const SupplierLogin = () => {
   // connect store to get login and errMsg info
 
   const lgn = useSelector((state) => state.supplierlogin);
-
-  //setErrRes(useSelector((state) => state.login.errMsg));
 
   const handleChange = (event) => {
     const newLogin = { ...login };
@@ -81,7 +78,7 @@ const SupplierLogin = () => {
       console.log(lgn);
       if (lgn.isLoggedIn) {
         alert("Supplier logged in successfully!");
-        navigate("/supplierDashboard");
+        navigate("/supplier/dashboard");
       }
     }, 500);
   };
@@ -92,9 +89,7 @@ const SupplierLogin = () => {
       <Col className="logincontainer" lg="5" md="7">
         <Card className="bg-secondary-login shadow border-0-login">
           <CardHeader className="bg-transparent-login pb-5-login">
-            {/* <div className="text-muted-login text-center-login mt-2 mb-3">
-                <small>Sign in with</small>
-              </div> */}
+            
             <div className="text-muted-login text-center-login mt-2 mb-3">
               <div className="text-center-login text-muted-login mb-4-login">
                 <small style={{ color: "black" }}>
@@ -102,15 +97,8 @@ const SupplierLogin = () => {
                 </small>
               </div>
             </div>
-            {/* <GoogleLogin /> */}
           </CardHeader>
-          {/* {this.state.errorMessage && (
-              <p className="error"> {this.state.errorMessage} </p>
-            )} */}
           <CardBody className="px-lg-5 py-lg-5">
-            {/* <div className="text-center-login text-muted-login mb-4-login">
-                <h3 style={{ color: "black" }}>Sign in with credentials</h3>
-              </div> */}
 
             <Form role="form" onSubmit={handleSubmit}>
               <FormGroup className="mb-3-login">
@@ -146,21 +134,9 @@ const SupplierLogin = () => {
                 type="submit"
                 value="Submit"
                 color="primary"
-               // onClick={navigateHome}
               >
                 Login
               </Button>
-
-              {/* <div className="text-center-login">
-                      <Button
-                        className="my-4"
-                        color="primary"
-                        type="button"
-                        onClick={this.handleSubmit}
-                      >
-                        Sign in
-                      </Button>
-                    </div> */}
             </Form>
           </CardBody>
         </Card>
@@ -174,49 +150,6 @@ const SupplierLogin = () => {
       </Col>
     </div>
 
-    // <div className="w-50 mx-auto mt-4">
-    //   {errRes && <p className="alert alert-danger">{errRes}</p>}
-    //   <form
-    //     onSubmit={handleSubmit}
-    //     className="border border-secondary rounded mt-4 p-2 shadow p-3 mb-5 bg-body rounded"
-    //   >
-    //     <p className="text-center fs-4 bg-secondary text-white">Login Form</p>
-    //     <div className="mb-3">
-    //       <label htmlFor="username" className="form-label">
-    //         Username
-    //       </label>
-    //       <input
-    //         type="username"
-    //         className="form-control"
-    //         id="username"
-    //         aria-describedby="usernameHelp"
-    //         name="username"
-    //         value={login.username}
-    //         onChange={handleChange}
-    //       />
-    //       {errors && <small className="text-danger">{errors.email}</small>}
-    //     </div>
-    //     <div className="mb-3">
-    //       <label htmlFor="password" className="form-label">
-    //         Password
-    //       </label>
-    //       <input
-    //         type="password"
-    //         className="form-control"
-    //         id="password"
-    //         name="password"
-    //         value={login.password}
-    //         onChange={handleChange}
-    //       />
-    //       {errors && <small className="text-danger">{errors.password}</small>}
-    //     </div>
-    //     <div className="d-grid gap-2 mt-3">
-    //       <button type="submit" className="btn btn-secondary">
-    //         Submit
-    //       </button>
-    //     </div>
-    //   </form>
-    // </div>
   );
 };
 

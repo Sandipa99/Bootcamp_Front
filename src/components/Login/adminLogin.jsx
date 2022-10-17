@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { loginAction } from "../../actions/farmerloginactions";
+import { loginAction } from "../../actions/adminloginactions";
 
 import "./Login.css";
 import {
@@ -17,7 +17,7 @@ import {
   Col,
 } from "reactstrap";
 
-const FarmerLogin = () => {
+const AdminLogin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [login, setLogin] = useState({
@@ -25,10 +25,10 @@ const FarmerLogin = () => {
     password: "",
   });
 
+
   // connect store to get login and errMsg info
 
-  const lgn = useSelector((state) => state.farmerlogin);
-  
+  const lgn = useSelector((state) => state.adminlogin);
   const handleChange = (event) => {
     const newLogin = { ...login };
     newLogin[event.target.name] = event.target.value;
@@ -41,8 +41,8 @@ const FarmerLogin = () => {
     // Based on loggedIn state redirect user to home or any other page
     setTimeout(() => {
       if (lgn.isLoggedIn) {
-        alert("Farmer logged in successfully!");
-        navigate("/farmer/dashboard");
+        alert("Admin logged in successfully!");
+        navigate("/admin/dashboard");
       }
     }, 500);
   };
@@ -98,13 +98,6 @@ const FarmerLogin = () => {
               </Form>
             </CardBody>
           </Card>
-          <Row className="mt-3">
-            <Col className="text-right" xs="8">
-              <a className="text-light" href="/registerfarmer">
-                <h6>Create new account</h6>
-              </a>
-            </Col>
-          </Row>
         </Col>
       </div>
     </>
@@ -112,4 +105,4 @@ const FarmerLogin = () => {
   );
 };
 
-export default FarmerLogin;
+export default AdminLogin;
